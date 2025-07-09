@@ -15,7 +15,8 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "gh-pages -d out"
   },
   "license": "MIT",
   "repository": {
@@ -36,13 +37,13 @@
     "dayjs": "^1.11.3",
     "esbuild": "^0.13.13",
     "framer-motion": "^6.3.10",
+    "gh-pages": "^6.3.0",
     "github-slugger": "^1.3.0",
     "gray-matter": "^4.0.2",
     "image-size": "1.0.0",
     "mdx-bundler": "^8.0.0",
     "motion": "^10.4.0",
     "next": "12.1.4",
-
     "next-themes": "^0.0.14",
     "nprogress": "^0.2.0",
     "postcss": "^8.4.5",

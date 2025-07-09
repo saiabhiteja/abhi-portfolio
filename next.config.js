@@ -56,22 +56,21 @@ const repo = 'abhi-portfolio'; // your repo name
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
+    unoptimized: true,
     domains: [
-      'i.scdn.co', // Spotify Album Art
+      'i.scdn.co',
       'pbs.twimg.com',
-      'cdn.discordapp.com', // discord url
+      'cdn.discordapp.com',
       'avatars.githubusercontent.com',
       'github.com',
-      's3.us-west-2.amazonaws.com', // Images coming from Notion
-      'via.placeholder.com', // for articles that do not have a cover image
-      'images.unsplash.com', // For blog posts that use an external cover image
-      'pbs.twimg.com', // Twitter Profile Picture
+      's3.us-west-2.amazonaws.com',
+      'via.placeholder.com',
+      'images.unsplash.com',
       'dwgyu36up6iuz.cloudfront.net',
       'cdn.hashnode.com',
       'res.craft.do',
-      'res.cloudinary.com', // Twitter Profile Picture
-    ],
-    unoptimized: true,
+      'res.cloudinary.com',
+    ]
   },
   rewrites: async () => [
     {
