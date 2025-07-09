@@ -1,0 +1,19 @@
+{
+  "/404": "pages/404.html",
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/about": "pages/about.js",
+  "/achievements": "pages/achievements.html",
+  "/blogs": "pages/blogs.html",
+  "/contact": "pages/contact.html",
+  "/current-work": "pages/current-work.html",
+  "/": "pages/index.html",
+  "/journey": "pages/journey.html",
+  "/privacypolicy": "pages/privacypolicy.html",
+  "/projects": "pages/projects.html",
+  "/quotes": "pages/quotes.html",
+  "/snippets": "pages/snippets.js",
+  "/snippets/[...slug]": "pages/snippets/[...slug].js",
+  "/snippets/page/[page]": "pages/snippets/page/[page].js",
+  "/_error": "pages/_error.js"
+}
