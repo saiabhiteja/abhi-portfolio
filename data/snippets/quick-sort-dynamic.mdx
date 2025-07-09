@@ -1,0 +1,130 @@
+---
+title: 'Quick Sort Algorithm'
+date: '2024-01-15'
+tags: [DSA, Sorting, Algorithm, Python, Java, C++]
+draft: false
+summary: "Efficient divide-and-conquer sorting algorithm with O(n log n) average time complexity"
+images: []
+layout: PostSimple
+---
+
+## Problem
+Sort an array of elements efficiently using the Quick Sort algorithm, which uses a divide-and-conquer approach with a pivot element.
+
+## Solution
+
+<CodeBlock 
+  title="Quick Sort Implementation"
+  description="Divide-and-conquer sorting algorithm using pivot element"
+  mediumLink="https://medium.com/@saiabhiteja/quick-sort-algorithm-explained"
+  languages={{
+    "Python": `def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    
+    return quick_sort(left) + middle + quick_sort(right)
+
+# Example usage
+arr = [64, 34, 25, 12, 22, 11, 90]
+sorted_arr = quick_sort(arr)
+print(f"Original: {arr}")
+print(f"Sorted: {sorted_arr}")`,
+
+    "Java": `public class QuickSort {
+    public static void quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
+        }
+    }
+    
+    private static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+        
+        for (int j = low; j < high; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+        
+        return i + 1;
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+}`,
+
+    "C++": `#include <iostream>
+#include <vector>
+using namespace std;
+
+int partition(vector<int>& arr, int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+    
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+
+void quickSort(vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+int main() {
+    vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
+    quickSort(arr, 0, arr.size() - 1);
+    
+    cout << "Sorted array: ";
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
+}`
+  }}
+/>
+
+## Time Complexity
+- **Time**: O(n log n) average case, O(n²) worst case
+- **Space**: O(log n) average case due to recursion stack
+
+## Key Points
+1. **Pivot Selection**: Choose a pivot element (first, last, middle, or random)
+2. **Partitioning**: Divide array into elements smaller and larger than pivot
+3. **Recursion**: Recursively sort the sub-arrays
+4. **In-place**: Can be implemented to sort in-place without extra space
+5. **Unstable**: Relative order of equal elements may change
+
+## When to Use
+- When you need average-case O(n log n) performance
+- When in-place sorting is preferred
+- When cache performance is important (good locality)
+- When you need a simple, efficient sorting algorithm 

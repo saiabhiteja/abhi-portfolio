@@ -1,0 +1,89 @@
+---
+title: 'Template - Dynamic Code Block'
+date: '2024-01-15'
+tags: [Template, Dynamic, Code Block]
+draft: true
+summary: "Template for creating snippets with interactive language selection"
+images: []
+layout: PostSimple
+---
+
+## Problem
+Brief description of the problem or concept being solved.
+
+## Solution
+
+<CodeBlock 
+  title="Your Implementation Title"
+  description="Brief description of what this code does"
+  mediumLink="https://medium.com/@yourusername/your-article-link"
+  languages={{
+    "Python": `# Python implementation here
+def example_function():
+    pass
+
+# Example usage
+result = example_function()
+print(result)`,
+
+    "Java": `// Java implementation here
+public class Example {
+    public static void exampleMethod() {
+        // Implementation
+    }
+    
+    public static void main(String[] args) {
+        // Example usage
+        exampleMethod();
+    }
+}`,
+
+    "C++": `// C++ implementation here
+#include <iostream>
+using namespace std;
+
+class Example {
+public:
+    static void exampleMethod() {
+        // Implementation
+    }
+};
+
+int main() {
+    // Example usage
+    Example::exampleMethod();
+    return 0;
+}`
+  }}
+/>
+
+## Time Complexity
+- **Time**: O(?) - explanation
+- **Space**: O(?) - explanation
+
+## Key Points
+1. Key point 1
+2. Key point 2
+3. Key point 3
+
+## Template Structure
+```jsx
+<CodeBlock 
+  title="Your Title"
+  description="Your description"
+  mediumLink="https://medium.com/@yourusername/your-article"
+  languages={{
+    "Python": `your python code here`,
+    "Java": `your java code here`,
+    "C++": `your c++ code here`
+  }}
+/>
+```
+
+## How to Use
+1. Copy this template structure
+2. Replace the title, description, and medium link
+3. Add your code implementations for each language
+4. Update time complexity and key points
+5. Set `draft: false` when ready
+6. Add appropriate tags for categorization 

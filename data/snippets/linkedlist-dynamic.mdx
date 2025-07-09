@@ -1,0 +1,281 @@
+---
+title: 'Linked List - Dynamic Implementation'
+date: '2024-01-15'
+tags: [DSA, Data Structures, Linked List, Python, Java, C++]
+draft: false
+summary: "Linked list implementation with interactive language selection"
+images: []
+layout: PostSimple
+---
+
+## Problem
+Implement basic linked list operations: insert, delete, and reverse.
+
+## Solution
+
+<CodeBlock 
+  title="Linked List Implementation"
+  description="Basic linked list with insert, delete, and reverse operations"
+  mediumLink="https://medium.com/@yourusername/linked-list-data-structure-guide"
+  languages={{
+    "Python": `class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def insert_at_end(self, val):
+        new_node = ListNode(val)
+        if not self.head:
+            self.head = new_node
+            return
+        
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node
+    
+    def delete_node(self, val):
+        if not self.head:
+            return False
+        
+        if self.head.val == val:
+            self.head = self.head.next
+            return True
+        
+        current = self.head
+        while current.next:
+            if current.next.val == val:
+                current.next = current.next.next
+                return True
+            current = current.next
+        return False
+    
+    def reverse(self):
+        prev = None
+        current = self.head
+        
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        
+        self.head = prev
+    
+    def print_list(self):
+        current = self.head
+        while current:
+            print(current.val, end=" -> ")
+            current = current.next
+        print("None")
+
+# Example usage
+ll = LinkedList()
+ll.insert_at_end(1)
+ll.insert_at_end(2)
+ll.insert_at_end(3)
+ll.print_list()  # 1 -> 2 -> 3 -> None
+
+ll.reverse()
+ll.print_list()  # 3 -> 2 -> 1 -> None`,
+
+    "Java": `class ListNode {
+    int val;
+    ListNode next;
+    
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    ListNode head;
+    
+    public void insertAtEnd(int val) {
+        ListNode newNode = new ListNode(val);
+        
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        
+        ListNode current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+    
+    public boolean deleteNode(int val) {
+        if (head == null) {
+            return false;
+        }
+        
+        if (head.val == val) {
+            head = head.next;
+            return true;
+        }
+        
+        ListNode current = head;
+        while (current.next != null) {
+            if (current.next.val == val) {
+                current.next = current.next.next;
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+    
+    public void reverse() {
+        ListNode prev = null;
+        ListNode current = head;
+        
+        while (current != null) {
+            ListNode nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        
+        head = prev;
+    }
+    
+    public void printList() {
+        ListNode current = head;
+        while (current != null) {
+            System.out.print(current.val + " -> ");
+            current = current.next;
+        }
+        System.out.println("null");
+    }
+    
+    public static void main(String[] args) {
+        LinkedList ll = new LinkedList();
+        ll.insertAtEnd(1);
+        ll.insertAtEnd(2);
+        ll.insertAtEnd(3);
+        ll.printList(); // 1 -> 2 -> 3 -> null
+        
+        ll.reverse();
+        ll.printList(); // 3 -> 2 -> 1 -> null
+    }
+}`,
+
+    "C++": `#include <iostream>
+using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode* next;
+    
+    ListNode(int val) : val(val), next(nullptr) {}
+};
+
+class LinkedList {
+private:
+    ListNode* head;
+    
+public:
+    LinkedList() : head(nullptr) {}
+    
+    void insertAtEnd(int val) {
+        ListNode* newNode = new ListNode(val);
+        
+        if (head == nullptr) {
+            head = newNode;
+            return;
+        }
+        
+        ListNode* current = head;
+        while (current->next != nullptr) {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
+    
+    bool deleteNode(int val) {
+        if (head == nullptr) {
+            return false;
+        }
+        
+        if (head->val == val) {
+            ListNode* temp = head;
+            head = head->next;
+            delete temp;
+            return true;
+        }
+        
+        ListNode* current = head;
+        while (current->next != nullptr) {
+            if (current->next->val == val) {
+                ListNode* temp = current->next;
+                current->next = current->next->next;
+                delete temp;
+                return true;
+            }
+            current = current->next;
+        }
+        return false;
+    }
+    
+    void reverse() {
+        ListNode* prev = nullptr;
+        ListNode* current = head;
+        
+        while (current != nullptr) {
+            ListNode* nextNode = current->next;
+            current->next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        
+        head = prev;
+    }
+    
+    void printList() {
+        ListNode* current = head;
+        while (current != nullptr) {
+            cout << current->val << " -> ";
+            current = current->next;
+        }
+        cout << "null" << endl;
+    }
+};
+
+int main() {
+    LinkedList ll;
+    ll.insertAtEnd(1);
+    ll.insertAtEnd(2);
+    ll.insertAtEnd(3);
+    ll.printList(); // 1 -> 2 -> 3 -> null
+    
+    ll.reverse();
+    ll.printList(); // 3 -> 2 -> 1 -> null
+    return 0;
+}`
+  }}
+/>
+
+## Time Complexity
+- **Insert at end**: O(n) - Need to traverse to the end
+- **Delete**: O(n) - Need to find the node to delete
+- **Reverse**: O(n) - Need to visit each node once
+
+## Key Points
+1. **Null pointer checks** - Always check for null before accessing next
+2. **Head pointer updates** - Update head when inserting/deleting first element
+3. **Memory management** - In C++, remember to delete nodes to prevent memory leaks
+4. **Temporary variables** - Use temp variables to avoid losing references during operations
+
+## Common Operations
+- Insert at beginning (O(1))
+- Insert at end (O(n))
+- Delete by value (O(n))
+- Reverse (O(n))
+- Detect cycle (O(n) time, O(1) space with Floyd's algorithm) 
