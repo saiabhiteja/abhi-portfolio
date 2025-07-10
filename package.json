@@ -16,7 +16,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky install",
-    "deploy": "gh-pages -d out"
+    "deploy": "touch ./out/.nojekyll && gh-pages -d out -t true"
   },
   "license": "MIT",
   "repository": {
