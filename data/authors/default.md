@@ -1,5 +1,6 @@
 ---
 name: Sai Abhiteja Chepuri
+# NOTE: Prepend basePath (from useRouter or process.env.NEXT_PUBLIC_BASE_PATH) to this avatar path in the consuming component for GitHub Pages compatibility
 avatar: /static/images/Abhi.jpeg
 occupation: Software Engineer
 company: Cloudera

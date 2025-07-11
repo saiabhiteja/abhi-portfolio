@@ -3,15 +3,17 @@ import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
 import { HiSun, HiMoon } from 'react-icons/hi'
 import useSound from 'use-sound'
+import { useRouter } from 'next/router'
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme, resolvedTheme } = useTheme()
+  const { basePath } = useRouter()
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
 
-  const [ThemeSound] = useSound('/static/sounds/switch-on.mp3')
+  const [ThemeSound] = useSound(`${basePath}/static/sounds/switch-on.mp3`)
 
   const ThemeSwitch = () => {
     setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')

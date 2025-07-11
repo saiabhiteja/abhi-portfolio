@@ -1,16 +1,17 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 const siteMetadata = {
   title: 'Blog | Sai Abhiteja Chepuri',
   author: 'Sai Abhiteja Chepuri',
-  headerTitle: 'Abhiteja\'s Blog',
+  headerTitle: "Abhiteja's Blog",
   description: 'My personal blog where I share insights on software engineering, distributed systems, and technology',
   snippets: 'Reusable code snippets and technical solutions',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://saiabhiteja.github.io/abhi-portfolio',
   siteRepo: 'https://github.com/saiabhiteja/abhi-portfolio',
-  siteLogo: '/static/images/logo.png',
-  image: '/static/images/Abhi.jpeg',
-  socialBanner: '/static/images/twitter-card.png',
+  siteLogo: `${basePath}/static/images/logo.png`,
+  image: `${basePath}/static/images/Abhi.jpeg`,
+  socialBanner: `${basePath}/static/images/twitter-card.png`,
   email: 'saiabhitejachepuri@gmail.com',
   github: 'https://github.com/saiabhiteja',
   twitter: 'https://twitter.com/saiabhiteja',

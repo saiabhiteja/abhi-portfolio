@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 class MyDocument extends Document {
   render() {
     return (
@@ -7,94 +8,104 @@ class MyDocument extends Document {
           <link
             rel="apple-touch-icon"
             sizes="76x76"
-            href="/static/favicons/apple-touch-icon-76x76.png"
+            href={`${basePath}/static/favicons/apple-touch-icon-76x76.png`}
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="57x57"
-            href="/static/favicons/apple-touch-icon-57x57.png"
+            href={`${basePath}/static/favicons/apple-touch-icon-57x57.png`}
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="114x114"
-            href="/static/favicons/apple-touch-icon-114x114.png"
+            href={`${basePath}/static/favicons/apple-touch-icon-114x114.png`}
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="72x72"
-            href="/static/favicons/apple-touch-icon-72x72.png"
+            href={`${basePath}/static/favicons/apple-touch-icon-72x72.png`}
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="144x144"
-            href="/static/favicons/apple-touch-icon-144x144.png"
+            href={`${basePath}/static/favicons/apple-touch-icon-144x144.png`}
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="60x60"
-            href="/static/favicons/apple-touch-icon-60x60.png"
+            href={`${basePath}/static/favicons/apple-touch-icon-60x60.png`}
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="120x120"
-            href="/static/favicons/apple-touch-icon-120x120.png"
+            href={`${basePath}/static/favicons/apple-touch-icon-120x120.png`}
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="76x76"
-            href="/static/favicons/apple-touch-icon-76x76.png"
+            href={`${basePath}/static/favicons/apple-touch-icon-76x76.png`}
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="152x152"
-            href="/static/favicons/apple-touch-icon-152x152.png"
+            href={`${basePath}/static/favicons/apple-touch-icon-152x152.png`}
           />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/static/favicons/favicon-32x32.png"
+            href={`${basePath}/static/favicons/favicon-32x32.png`}
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="/static/favicons/favicon-16x16.png"
+            href={`${basePath}/static/favicons/favicon-16x16.png`}
           />
           <link
             rel="icon"
             type="image/png"
-            href="/static/favicons/favicon-196x196.png"
+            href={`${basePath}/static/favicons/favicon-196x196.png`}
             sizes="196x196"
           />
           <link
             rel="icon"
             type="image/png"
-            href="/static/favicons/favicon-96x96.png"
+            href={`${basePath}/static/favicons/favicon-96x96.png`}
             sizes="96x96"
           />
           <link
             rel="icon"
             type="image/png"
-            href="/static/favicons/favicon-128.png"
+            href={`${basePath}/static/favicons/favicon-128.png`}
             sizes="128x128"
           />
-          <meta name="msapplication-TileImage" content="/static/favicons/mstile-144x144.png" />
-          <meta name="msapplication-square70x70logo" content="/static/favicons/mstile-70x70.png" />
+          <meta
+            name="msapplication-TileImage"
+            content={`${basePath}/static/favicons/mstile-144x144.png`}
+          />
+          <meta
+            name="msapplication-square70x70logo"
+            content={`${basePath}/static/favicons/mstile-70x70.png`}
+          />
           <meta
             name="msapplication-square150x150logo"
-            content="/static/favicons/mstile-150x150.png"
+            content={`${basePath}/static/favicons/mstile-150x150.png`}
           />
           <meta
             name="msapplication-wide310x150logo"
-            content="/static/favicons/mstile-310x150.png"
+            content={`${basePath}/static/favicons/mstile-310x150.png`}
           />
           <meta
             name="msapplication-square310x310logo"
-            content="/static/favicons/mstile-310x310.png"
+            content={`${basePath}/static/favicons/mstile-310x310.png`}
           />
-          <link rel="manifest" href="/static/favicons/site.webmanifest" />
-          <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+          <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
+          <link
+            rel="mask-icon"
+            href={`${basePath}/static/favicons/safari-pinned-tab.svg`}
+            color="#5bbad5"
+          />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
           <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
@@ -102,7 +113,7 @@ class MyDocument extends Document {
             name="description"
             content="Welcome to my personal blog where I share my musings. I am a Data Engineer passionate about Data Science, building pipelines and Automation."
           />
-          <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+          <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -114,7 +125,7 @@ class MyDocument extends Document {
             integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
             crossOrigin="anonymous"
           />
-          <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+          <link rel="icon" href={`${basePath}/favicon.svg`} sizes="any" type="image/svg+xml" />
           <meta
             name="google-site-verification"
             content="_Ba0lKk4Dl9XMvABJ9gZEtoMPITT5Vr5TGx2M-34Z_I"

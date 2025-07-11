@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import classNames from 'classnames'
 // import { useSession, signIn, signOut } from 'next-auth/react'
 import Link from '@/components/common/Link'
+import { useRouter } from 'next/router'
 import {
   CodeIcon,
   HomeIcon,
@@ -30,11 +31,12 @@ import useSound from 'use-sound'
 export default function DropMenu() {
   const [isOpen, setIsOpen] = useState(false)
   // const { data: session } = useSession()
+  const { basePath } = useRouter()
   const toggleIcon = () => {
     setIsOpen(!isOpen)
   }
 
-  const [ThemeSound] = useSound('/static/sounds/page-change.mp3')
+  const [ThemeSound] = useSound(`${basePath}/static/sounds/page-change.mp3`)
 
   return (
     <Menu as="div" className="relative z-10 inline-block text-left ">

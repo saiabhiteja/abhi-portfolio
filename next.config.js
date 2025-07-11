@@ -53,6 +53,8 @@ const securityHeaders = [
 ]
 
 const repo = 'abhi-portfolio'; // your repo name
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
@@ -109,6 +111,6 @@ module.exports = withBundleAnalyzer({
     return config
   },
   output: 'export',
-  assetPrefix: `/${repo}/`,
-  basePath: `/${repo}`,
+  assetPrefix: isProd ? `/${repo}/` : '',
+  basePath: isProd ? `/${repo}` : '',
 })
