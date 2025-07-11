@@ -110,7 +110,4 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
-  output: 'export',
-  assetPrefix: isProd ? `/${repo}/` : '',
-  basePath: isProd ? `/${repo}` : '',
 })
