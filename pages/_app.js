@@ -11,6 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import LayoutWrapper from '@/components/layout/LayoutWrapper'
 import { ClientReload } from '@/components/utils/ClientReload'
 import ProgressBar from 'react-scroll-progress-bar'
+import ErrorBoundary from '@/components/common/ErrorBoundary'
 // import ScrollTop from '@/components/common/ScrollTop'
 // import { SessionProvider } from 'next-auth/react'
 // import { Provider } from '@lyket/react'
@@ -51,19 +52,19 @@ Router.onRouteChangeError = () => {
 
 export default function App({ Component, pageProps }) {
   return (
-    // <Provider apiKey="pt_7c8b6840f5ba39cd3b2b471cd8efc2" theme={defaultTheme}>
-    <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
-      <ProgressBar bgcolor="#DE1D8D" />
-      {/* <ScrollTop /> */}
-      <Head>
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-      </Head>
-      {isDevelopment && isSocket && <ClientReload />}
-      {/* <Analytics /> */}
-      <LayoutWrapper>
-        <Component {...pageProps} />
-      </LayoutWrapper>
-    </ThemeProvider>
-    // </Provider>
+    <ErrorBoundary>
+      <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
+        <ProgressBar bgcolor="#DE1D8D" />
+        {/* <ScrollTop /> */}
+        <Head>
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+        </Head>
+        {isDevelopment && isSocket && <ClientReload />}
+        {/* <Analytics /> */}
+        <LayoutWrapper>
+          <Component {...pageProps} />
+        </LayoutWrapper>
+      </ThemeProvider>
+    </ErrorBoundary>
   )
 }
